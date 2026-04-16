@@ -1,0 +1,246 @@
+/* ==========================================================================
+   styles.css - SportClub (Versión Final con Glassmorphism y Sidebar)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+:root {
+    /* Colores Corporativos SportClub */
+    --primary: #2E1A47; /* Morado oscuro */
+    --accent: #F2B705;  /* Amarillo / dorado */
+    --white: #FFFFFF;
+    --bg-light: #f4f4f9;
+    --text-dark: #333333;
+
+    /* Colores de Perfiles (Dashboards) */
+    --theme-user: #0056b3;   /* Azul */
+    --theme-coach: #28a745;  /* Verde */
+    --theme-admin: #c82333;  /* Rojo */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* ================= HEADER GLASSMORPHISM ================= */
+.main-header {
+    /* Fondo morado con opacidad para el efecto de cristal */
+    background-color: #2E1A47cc; 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    color: var(--white);
+    padding: 0.8rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* Hace que el menú acompañe al hacer scroll */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-container {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.header-logo { max-height: 45px; width: auto; }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+/* Efecto Hover Subrayado Animado para los enlaces de texto */
+.nav-links a:not(.btn-primary):not(.btn-secondary) {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative; /* Necesario para la animación */
+}
+
+.nav-links a:not(.btn-primary):not(.btn-secondary)::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent);
+    transition: width 0.3s ease-in-out;
+    border-radius: 2px;
+}
+
+.nav-links a:not(.btn-primary):not(.btn-secondary):hover::after {
+    width: 100%; /* La línea crece al pasar el mouse */
+}
+
+/* ================= BOTONES GLOBALES Y EFECTOS HOVER ================= */
+.btn-primary {
+    background-color: var(--accent);
+    color: var(--primary);
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px); /* Se levanta un poco al pasar el mouse */
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--white);
+    color: var(--white);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Botones específicos de sesión */
+.btn-edit {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: var(--white);
+    padding: 0.6rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.btn-edit:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--white);
+}
+
+.btn-logout {
+    background-color: rgba(255, 77, 77, 0.2);
+    border: 1px solid rgba(255, 77, 77, 0.4);
+    color: #ffcccc;
+    padding: 0.6rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.btn-logout:hover {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+/* ================= LANDING PAGE ================= */
+.hero {
+    background: linear-gradient(rgba(46, 26, 71, 0.8), rgba(46, 26, 71, 0.8)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop') center/cover;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    padding: 0 20px;
+}
+
+.hero h1 { font-size: 3rem; color: var(--accent); margin-bottom: 1rem; }
+.info-section { padding: 4rem 5%; text-align: center; }
+.info-grid { display: flex; gap: 2rem; margin-top: 2rem; justify-content: center; flex-wrap: wrap; }
+.card { background: var(--white); padding: 2rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); flex: 1; min-width: 250px; }
+
+/* ================= FORMULARIOS (Login, Registro, Recuperar) ================= */
+.auth-container { display: flex; justify-content: center; align-items: center; height: 90vh; }
+.auth-box { 
+    background: var(--white); padding: 2.5rem; border-radius: 12px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 100%; max-width: 400px; text-align: center; 
+}
+
+.auth-box-logo { max-height: 80px; width: auto; display: block; margin: 0 auto 1.5rem; }
+.auth-box h2 { color: var(--primary); margin-bottom: 1.5rem; }
+
+/* Cajas de texto estilizadas */
+.form-group { margin-bottom: 1.2rem; text-align: left; }
+.form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--primary); }
+.form-group input { 
+    width: 100%; padding: 0.8rem; border: 1px solid #ccc; 
+    border-radius: 6px; font-size: 1rem; transition: border-color 0.3s; 
+}
+.form-group input:focus { 
+    outline: none; border-color: var(--accent); box-shadow: 0 0 5px rgba(242, 183, 5, 0.5); 
+}
+
+.auth-box .btn-primary { width: 100%; margin-top: 1rem; }
+.auth-links { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.9rem; }
+.auth-links a { color: var(--primary); text-decoration: none; font-weight: 600; }
+.auth-links a:hover { text-decoration: underline; }
+
+/* ================= DASHBOARDS (SIDEBAR LAYOUT) ================= */
+.dashboard-layout { display: flex; min-height: 100vh; }
+
+.sidebar {
+    width: 260px;
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 2rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.sidebar-logo { text-align: center; margin-bottom: 1.5rem; }
+.sidebar-logo img { max-width: 100%; height: auto; max-height: 50px; }
+
+.sidebar-nav { flex-grow: 1; margin-top: 1rem;}
+.sidebar-nav ul { list-style: none; padding: 0; }
+.sidebar-nav li { margin-bottom: 0.5rem; }
+.sidebar-nav a {
+    color: var(--white); text-decoration: none; font-weight: 600;
+    display: block; padding: 0.8rem 1rem; border-radius: 6px; transition: background-color 0.3s ease;
+}
+.sidebar-nav a:hover { background-color: rgba(255, 255, 255, 0.1); color: var(--accent); }
+
+.sidebar-bottom { margin-top: auto; border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 1rem; }
+
+.main-content { 
+    flex: 1; background-color: var(--bg-light); padding: 2rem 4%; 
+    overflow-y: auto; height: 100vh; 
+}
+
+.dashboard-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 2px solid #ccc;
+}
+
+.theme-user .sidebar { background-color: var(--theme-user); }
+.theme-coach .sidebar { background-color: var(--theme-coach); }
+.theme-admin .sidebar { background-color: var(--theme-admin); }

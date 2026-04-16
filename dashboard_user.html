@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Usuario | SportClub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-user">
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <a href="index.html"><img src="image_0.png" alt="Logo"></a>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#">🏠 Inicio</a></li>
+                    <li><a href="#">📅 Mis Reservas</a></li>
+                    <li><a href="#">👤 Mi Perfil</a></li>
+                </ul>
+            </nav>
+            <div style="display:flex; flex-direction:column; gap:0.5rem;">
+                <a href="#" class="btn-edit">✏️ Editar Perfil</a>
+                <a href="index.html" class="btn-logout">🚪 Cerrar Sesión</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="dashboard-header">
+                <div>
+                    <h2>Bienvenido, Juan Pérez</h2>
+                    <p>juan.perez@email.com | Miembro desde: Abril 2026</p>
+                </div>
+            </div>
+
+            <div class="info-grid">
+                <div class="card">
+                    <h3>Mi Información</h3>
+                    <p><strong>Deporte favorito:</strong> Crossfit</p>
+                    <p><strong>Nivel:</strong> Intermedio</p>
+                </div>
+
+                <div class="card">
+                    <h3>Mis Próximas Reservas</h3>
+                    <ul style="list-style: none; margin-top: 1rem;">
+                        <li style="margin-bottom: 0.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid #eee;">
+                            🏋️ Clase de Crossfit – Lunes 18:00
+                        </li>
+                        <li style="margin-bottom: 0.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid #eee;">
+                            🚴 Spinning – Miércoles 19:30
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card" style="min-width: 100%;">
+                    <h3>Clases Disponibles para Inscribirse</h3>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;">
+                        <div style="background: #f0f4f8; padding: 1rem; border-radius: 8px; flex: 1; min-width: 200px;">
+                            <h4>🧘 Yoga</h4>
+                            <p style="font-size: 0.9rem;">Flexibilidad y paz mental.</p>
+                        </div>
+                        <div style="background: #f0f4f8; padding: 1rem; border-radius: 8px; flex: 1; min-width: 200px;">
+                            <h4>💪 Funcional</h4>
+                            <p style="font-size: 0.9rem;">Entrenamiento de alta intensidad.</p>
+                        </div>
+                        <div style="background: #f0f4f8; padding: 1rem; border-radius: 8px; flex: 1; min-width: 200px;">
+                            <h4>🚴 Spinning</h4>
+                            <p style="font-size: 0.9rem;">Quema calorías al ritmo de la música.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
