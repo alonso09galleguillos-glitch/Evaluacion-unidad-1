@@ -1,21 +1,16 @@
-/* ==========================================================================
-   styles.css - SportClub (Versión Final con Glassmorphism y Sidebar)
-   ========================================================================== */
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
 
 :root {
-    /* Colores Corporativos SportClub */
-    --primary: #2E1A47; /* Morado oscuro */
-    --accent: #F2B705;  /* Amarillo / dorado */
+    
+    --primary: #2E1A47;
+    --accent: #F2B705;  
     --white: #FFFFFF;
     --bg-light: #f4f4f9;
     --text-dark: #333333;
 
-    /* Colores de Perfiles (Dashboards) */
-    --theme-user: #0056b3;   /* Azul */
-    --theme-coach: #28a745;  /* Verde */
-    --theme-admin: #c82333;  /* Rojo */
+    --theme-user: #0056b3;   
+    --theme-coach: #28a745;  
+    --theme-admin: #c82333;  
 }
 
 * {
@@ -31,9 +26,7 @@ body {
     line-height: 1.6;
 }
 
-/* ================= HEADER GLASSMORPHISM ================= */
 .main-header {
-    /* Fondo morado con opacidad para el efecto de cristal */
     background-color: #2E1A47cc; 
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -45,7 +38,6 @@ body {
     align-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     
-    /* Hace que el menú acompañe al hacer scroll */
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -66,12 +58,11 @@ body {
     align-items: center;
 }
 
-/* Efecto Hover Subrayado Animado para los enlaces de texto */
 .nav-links a:not(.btn-primary):not(.btn-secondary) {
     color: var(--white);
     text-decoration: none;
     font-weight: 600;
-    position: relative; /* Necesario para la animación */
+    position: relative; 
 }
 
 .nav-links a:not(.btn-primary):not(.btn-secondary)::after {
@@ -87,10 +78,9 @@ body {
 }
 
 .nav-links a:not(.btn-primary):not(.btn-secondary):hover::after {
-    width: 100%; /* La línea crece al pasar el mouse */
+    width: 100%; 
 }
 
-/* ================= BOTONES GLOBALES Y EFECTOS HOVER ================= */
 .btn-primary {
     background-color: var(--accent);
     color: var(--primary);
@@ -106,7 +96,7 @@ body {
 
 .btn-primary:hover {
     filter: brightness(1.1);
-    transform: translateY(-2px); /* Se levanta un poco al pasar el mouse */
+    transform: translateY(-2px); 
 }
 
 .btn-secondary {
@@ -125,7 +115,6 @@ body {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Botones específicos de sesión */
 .btn-edit {
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.5);
@@ -160,7 +149,6 @@ body {
     color: white;
 }
 
-/* ================= LANDING PAGE ================= */
 .hero {
     background: linear-gradient(rgba(46, 26, 71, 0.8), rgba(46, 26, 71, 0.8)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop') center/cover;
     height: 80vh;
@@ -178,7 +166,6 @@ body {
 .info-grid { display: flex; gap: 2rem; margin-top: 2rem; justify-content: center; flex-wrap: wrap; }
 .card { background: var(--white); padding: 2rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); flex: 1; min-width: 250px; }
 
-/* ================= FORMULARIOS (Login, Registro, Recuperar) ================= */
 .auth-container { display: flex; justify-content: center; align-items: center; height: 90vh; }
 .auth-box { 
     background: var(--white); padding: 2.5rem; border-radius: 12px; 
@@ -188,7 +175,6 @@ body {
 .auth-box-logo { max-height: 80px; width: auto; display: block; margin: 0 auto 1.5rem; }
 .auth-box h2 { color: var(--primary); margin-bottom: 1.5rem; }
 
-/* Cajas de texto estilizadas */
 .form-group { margin-bottom: 1.2rem; text-align: left; }
 .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--primary); }
 .form-group input { 
@@ -204,7 +190,6 @@ body {
 .auth-links a { color: var(--primary); text-decoration: none; font-weight: 600; }
 .auth-links a:hover { text-decoration: underline; }
 
-/* ================= DASHBOARDS (SIDEBAR LAYOUT) ================= */
 .dashboard-layout { display: flex; min-height: 100vh; }
 
 .sidebar {
